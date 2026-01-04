@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Just One Question 💖</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+        font-family: 'Segoe UI', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .screen {
+        display: none;
+        background: white;
+        padding: 40px;
+        border-radius: 25px;
+        width: 90%;
+        max-width: 400px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .screen.active {
+        display: block;
+    }
+
+    h2, h3 {
+        color: #ff4d6d;
+    }
+
+    p {
+        color: #444;
+        line-height: 1.6;
+    }
+
+    input {
+        padding: 10px;
+        width: 80%;
+        border-radius: 20px;
+        border: 1px solid #ccc;
+        text-align: center;
+        font-size: 16px;
+        margin-top: 15px;
+    }
+
+    button {
+        padding: 12px 25px;
+        margin: 10px;
+        border: none;
+        border-radius: 25px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .yes {
+        background: #ff4d6d;
+        color: white;
+    }
+
+    .yes2 {
+        background: #ff758f;
+        color: white;
+    }
+
+    .no {
+        background: #ccc;
+        position: relative;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- 🎀 Interface 1 -->
+<div class="screen active" id="screen1">
+    <h2>Hey cutie 💕</h2>
+    <p>Hope you’re doing good  
+    <br>Put your name to have access 💌</p>
+
+    <input type="text" id="nameInput" placeholder="Your name">
+    <br><br>
+    <button class="yes" onclick="checkName()">Enter 💖</button>
+</div>
+
+<!-- 🌸 Interface 2 -->
+<div class="screen" id="screen2">
+    <p>
+        First of all let’s forget all the bad things and talks  
+        <br>and you’re just here to answer the way I like 🥰
+    </p>
+
+    <button class="yes" onclick="goToScreen3()">Yes 💕</button>
+    <button class="yes2" onclick="goToScreen3()">Yes ofc 😌</button>
+</div>
+
+<!-- 💖 Interface 3 -->
+<div class="screen" id="screen3">
+    <p>
+        Hey luna, lyna, الدبابة, my beautiful gorgeous girl 💗  
+        <br><br>
+        Ik it took me a while but in my head u were always my girl  
+        and nothing was worth it like you  
+        <br><br>
+        This is a pre-asking that I’ve been working on  
+        and the official one is gonna be way bigger and cuter  
+        than this little website  
+        <br><br>
+        Today it’s been a week since I gave u my sweatshirt  
+        which is completely yours now  
+        <br><br>
+        So I made this little website just to ask you one thing 💕
+    </p>
+
+    <h3>Will you be my forever  
+    <br>cuz a girlfriend isn’t enough for u ? 💍</h3>
+
+    <button class="yes" onclick="sayYes()">YES 💖</button>
+    <button class="no" id="noBtn">No 🙄</button>
+
+    <audio id="music" src="love.mp3"></audio>
+</div>
+
+<script>
+    function checkName() {
+        const name = document.getElementById("nameInput").value.toLowerCase();
+        if (name === "lyna") {
+            document.getElementById("screen1").classList.remove("active");
+            document.getElementById("screen2").classList.add("active");
+        } else {
+            alert("Hmm… try again cutie 😉");
+        }
+    }
+
+    function goToScreen3() {
+        document.getElementById("screen2").classList.remove("active");
+        document.getElementById("screen3").classList.add("active");
+    }
+
+    function sayYes() {
+        const music = document.getElementById("music");
+        music.play();
+        document.body.innerHTML = "<h1 style='color:#ff4d6d'>I KNEW IT 😍💖<br>You made me the happiest person ever</h1>";
+    }
+
+    // 🏃 No button runs away
+    const noBtn = document.getElementById("noBtn");
+    noBtn.addEventListener("mouseover", () => {
+        const x = Math.random() * 200 - 100;
+        const y = Math.random() * 200 - 100;
+        noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+</script>
+
+</body>
+</html>
